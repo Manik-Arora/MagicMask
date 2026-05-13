@@ -2,8 +2,12 @@ import React from "react";
 import mainIcon from "../assets/main.png";
 import arrowIcon from "../assets/arrow_icon.svg";
 import { Link } from "react-router-dom";
+import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 
 const Navbar = () => {
+  const { openSignIn } = useClerk();
+  const { isSignedIn, user } = useUser();
+
   return (
     <div className="flex justify-between items-center mx-4 py-3 lg:mx-44">
       <Link to="/">
@@ -16,10 +20,18 @@ const Navbar = () => {
           <h2 className="text-lg sm:text-2xl font-bold">MagicMask</h2>
         </div>
       </Link>
-
-      <button className="bg-zinc-800 text-white flex items-center gap-2 sm:gap-4 px-4 py-2 sm:px-8 sm:py-3 text-xs sm:text-sm rounded-full">
-        Get started <img className="w-3 sm:w-4" src={arrowIcon} alt="" />
-      </button>
+      {isSignedIn ? (
+        <div>
+          <UserButton />
+        </div>
+      ) : (
+        <button
+          onClick={() => openSignIn({})}
+          className="bg-zinc-800 text-white flex items-center gap-2 sm:gap-4 px-4 py-2 sm:px-8 sm:py-3 text-xs sm:text-sm rounded-full"
+        >
+          Get started <img className="w-3 sm:w-4" src={arrowIcon} alt="" />
+        </button>
+      )}
     </div>
   );
 };
