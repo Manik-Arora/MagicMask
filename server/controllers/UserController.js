@@ -53,4 +53,26 @@ const clearWebhooks = async (req, res) => {
   }
 };
 
-export { clearWebhooks };
+//  fetch user available credits data
+const userCredits = async (req, res) => {
+  try {
+    const clerkId = req.clerkId;
+    const userData = await User.findOne({ clerkId });
+    console.log("hihi");
+
+    console.log(userData);
+
+    res.json({
+      success: true,
+      credit: userData.creditBalance,
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export { clearWebhooks, userCredits };

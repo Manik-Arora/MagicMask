@@ -5,10 +5,12 @@ import Pricing from "./pages/Pricing";
 import Result from "./pages/Result";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ToastContainer, toast } from "react-toastify";
 
 const App = () => {
   return (
     <div className="min-h-screen bg-slate-50">
+      <ToastContainer position="bottom-right"></ToastContainer>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
