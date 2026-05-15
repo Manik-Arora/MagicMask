@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import uploadImage from "../assets/upload_btn_icon.svg";
 import headerImage from "../assets/header_img.png";
+import { AppContext } from "../context/AppContext";
 
 const Header = () => {
+  const { removeBg } = useContext(AppContext);
+
   return (
     <div className="flex items-center justify-center gap-10 lg:gap-20 max-sm:flex-col-reverse gap-y-10 px-4 mt-10 lg:px-44 sm:mt-20">
       <div>
@@ -18,7 +21,13 @@ const Header = () => {
           check our Privacy Policy.
         </p>
         <div>
-          <input type="file" id="upload" hidden />
+          <input
+            onChange={(e) => removeBg(e.target.files[0])}
+            type="file"
+            accept="image/*"
+            id="upload"
+            hidden
+          />
           <label
             htmlFor="upload"
             className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border cursor-pointer bg-linear-to-r from-violet-600 to-fuchsia-500 m-auto hover:scale-105 transition-all duration-700
