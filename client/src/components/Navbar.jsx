@@ -12,13 +12,13 @@ import { assets } from "../assets/assets";
 const Navbar = () => {
   const { openSignIn } = useClerk();
   const { isSignedIn, user } = useUser();
-  const { credit, loadCreditData } = useContext(AppContext);
+  const { credit, loadCreditsData } = useContext(AppContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isSignedIn) {
-      loadCreditData();
+      loadCreditsData();
     }
   }, [isSignedIn]);
 

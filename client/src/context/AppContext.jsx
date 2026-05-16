@@ -19,7 +19,7 @@ const AppContextProvider = (props) => {
   const { isSignedIn } = useUser();
   const { openSignIn } = useClerk();
 
-  const loadCreditData = async () => {
+  const loadCreditsData = async () => {
     try {
       const token = await getToken();
       const { data } = await axios.get(`${backendUrl}/api/user/credits`, {
@@ -83,7 +83,7 @@ const AppContextProvider = (props) => {
   const value = {
     credit,
     setCredit,
-    loadCreditData,
+    loadCreditsData,
     backendUrl,
     image,
     setImage,
