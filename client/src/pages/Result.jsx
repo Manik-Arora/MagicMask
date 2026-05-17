@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Result = () => {
-  const { resultImage, image } = useContext(AppContext);
+  const { resultImage, image, setImage, setResultImage } =
+    useContext(AppContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,16 +33,28 @@ const Result = () => {
               Background Removed
             </p>
             <img
-              className="rounded-md border border-gray-200"
-              src={resultImage ? resultImage : assets.image_wo_bg}
+              className={`rounded-md border border-gray-200 transition-all duration-700 ease-out ${resultImage ? "" : "blur-md animate-pulse"} `}
+              src={
+                resultImage
+                  ? resultImage
+                  : image
+                    ? URL.createObjectURL(image)
+                    : assets.image_wo_bg
+              }
               alt=""
             />
-            {!resultImage && image && <div>Loading</div>}
           </div>
         </div>
         {resultImage && (
           <div className="flex justify-center sm:justify-end items-center flex-wrap gap-4 mt-6">
-            <button className="px-8 py-2.5 text-violet-600 text-sm border border-violet-600 rounded-full hover:scale-105 transition-all duration-700 cursor-pointer">
+            <button
+              onClick={() => {
+                setImage(false);
+                setResultImage(false);
+                navigate("/");
+              }}
+              className="px-8 py-2.5 text-violet-600 text-sm border border-violet-600 rounded-full hover:scale-105 transition-all duration-700 cursor-pointer"
+            >
               Try another image
             </button>
             <a
