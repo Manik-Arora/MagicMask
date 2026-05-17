@@ -10,6 +10,7 @@ MagicMask is a full-stack web app for removing image backgrounds and managing cr
 - Razorpay purchase flow for buying image credits
 - MongoDB persistence for users and transactions
 - Separate client and server projects for easier deployment and development
+- Live demo: https://magic-mask-k2ct.vercel.app/
 
 ## Tech Stack
 
