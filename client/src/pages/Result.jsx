@@ -2,9 +2,18 @@ import React from "react";
 import { assets } from "../assets/assets";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Result = () => {
   const { resultImage, image } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!image && !resultImage) {
+      navigate("/");
+    }
+  }, [image, resultImage, navigate]);
 
   return (
     <div className="mx-4 my-3 lg:mx-44 mt-14 min-h-[75vh]">

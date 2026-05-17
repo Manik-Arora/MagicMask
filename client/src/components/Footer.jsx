@@ -15,9 +15,9 @@ const Footer = () => {
         All right reserved. Copright @MagicMask
       </p>
       <div className="flex gap-1">
-        <img width={40} src={facebookIcon} alt="" />
-        <img width={40} src={twitterIcon} alt="" />
-        <img width={40} src={googleIcon} alt="" />
+        <img className="cursor-pointer" width={40} src={facebookIcon} alt="" />
+        <img className="cursor-pointer" width={40} src={twitterIcon} alt="" />
+        <img className="cursor-pointer" width={40} src={googleIcon} alt="" />
       </div>
     </div>
   );
