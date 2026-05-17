@@ -7,8 +7,8 @@ const Header = () => {
   const { removeBg } = useContext(AppContext);
 
   return (
-    <div className="flex items-center justify-center gap-10 lg:gap-20 max-sm:flex-col-reverse gap-y-10 px-4 mt-10 lg:px-44 sm:mt-20">
-      <div>
+    <div className="flex  items-center justify-center gap-10 lg:gap-20 max-sm:flex-col-reverse gap-y-10 px-4 mt-10 lg:px-44 sm:mt-20">
+      <div className="max-sm:text-center">
         <h1 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-neutral-700 leading-tight">
           Remove the <br className="max-md:hidden" />{" "}
           <span className="bg-linear-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">

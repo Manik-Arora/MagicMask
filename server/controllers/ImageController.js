@@ -49,7 +49,10 @@ const removeBgImage = async (req, res) => {
     const base64Image = Buffer.from(data, "binary").toString("base64");
     const resultImage = `data:${req.file.mimetype};base64,${base64Image}`;
 
-    await User.findById(user._id, { creditBalance: user.creditBalance - 1 });
+    await User.findByIdAndUpdate(user._id, {
+      creditBalance: user.creditBalance - 1,
+    });
+    console.log("User: " + user._id);
 
     res.json({
       success: true,

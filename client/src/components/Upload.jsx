@@ -13,7 +13,7 @@ const Upload = () => {
       </h1>
       <div className="text-center mb-24">
         <input
-          onChange={(e) => removeBg(e.target.value)}
+          onChange={(e) => removeBg(e.target.files[0])}
           type="file"
           id="upload2"
           accept="image/*"
